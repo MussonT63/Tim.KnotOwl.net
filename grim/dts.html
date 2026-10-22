@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.8.0">
+  <meta http-equiv="refresh" content="3;">
+  <style>
+    h2 { text-align: center; }
+  </style>
+  <title>redirecting spell</title>
+</head>
+<body>
+  <h2>It is currently <span id="yyyy"></span>/<span id="MM"></span>/<span id="dd"></span>-<span id="hh"></span>:<span id="mm"></span>:<span id="ss"></span></h2>
+  <script type="text/javascript">
+    // https://www.w3schools.com/jsref/jsref_obj_date.asp
+          // set up for DTS in html
+    var now = new Date();
+    var yyyy = now.getFullYear(); yy = yyyy.toString().substr(2,2);
+    document.getElementById("yyyy").innerHTML = yyyy;
+    var MM = now.getMonth()+1; MM = MM < 10 ? '0' + MM : '' + MM;
+    document.getElementById("MM").innerHTML = MM;
+    var dd = now.getDate();
+    document.getElementById("dd").innerHTML = dd;
+    var ss = now.getSeconds(); ss = ss < 10 ? '0' + ss : '' + ss;
+    document.getElementById("ss").innerHTML = ss;
+    var hh = now.getHours(); hh = hh < 10 ? '0' + hh : '' + hh;
+    document.getElementById("hh").innerHTML = hh;
+    var mm = now.getMinutes(); mm = mm < 10 ? '0' + mm : '' + mm;
+    document.getElementById("mm").innerHTML = mm;
+  </script>
+</body>
+</html>
