@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<!--
+Careful using F8-TIDY to reformat!
+You will have to go fix all the <span> tags used for dimming!
+!-->
+
+  <meta name="generator" content="HTML Tidy for Windows (vers 1st October 2003), see www.w3.org">
+  <link rel="stylesheet" href="Tims.css">
+
+  <title></title>
+</head>
+
+  <ol id="checkList">
+    <li> <input type="checkbox" listnum="1"><span>New Change <div> <span>Applications \ Change Management \ New Change</span> </div></span> </li>
+    <li> <input type="checkbox" listnum="2"><span><input textbox="" size="14" placeholder="Record_CRQ"> Save (you may have to go find your CRQ now...)</span></li>
+    <li> <input type="checkbox" listnum="3"><span>Requested For <div> <span>Quick Action box \ Requested For \ Last Name (Case sensitive), Enter, Ok, Yes</span> </div></span> </li>
+    <li> <input type="checkbox" listnum="4"><span>Template (type "cmp", autocompletes, down arrow, enter) <div> <span>Server IMAC-NGDI \ <b class=eMorpheus>Server IMAC - CMP Server Deployment</b> \ Select</span> </div></span> </li>
+    <li> <input type="checkbox" listNum="5"><span>Update Summary to make it unique/recognizable <div> <span>prefix with : <b class=eMorpheus><span id="yyyy"></span>/<span id="MM"></span>/<span id="dd"></span>-<span id="hh"></span>:<span id="mm"></span>:<span id="ss"></span>&nbsp;</span></b> </div></span> </li>
+    <li> <input type="checkbox" listnum="6"><span>Coordinator Group*+ \ Change Coordinator+ <div> <span>"CID Hosting Automation" \ Select</span> </div></span> </li>
+    <li> <input type="checkbox" listnum="7"><span>Manager Group*+ \ Change Manager+ <div> <span>"CID Hosting Automation" \ Select</span> </div></span> </li>
+    <li> <input type="checkbox" listnum="8"><span>Next Stage button (go back to Change Console to refresh) <div> <span>Takes a LONG time to complete, and ends up in Plan &amp; Schedule phase</span> </div></span> </li>
+    <!--
+    <li> <input type="checkbox" listnum="9"><span>Select Tasks before "Enter Request in CLM" Cancel \ Yes <div> <span>Task "Enter Request in CLM Portal" will be in Pending Status when in Implement</span> </div></span> </li>
+    !-->
+    <li> <input type="checkbox" listnum="10"><span>Next Stage to move to Implement Status (Implementation In Progress) <div> "Scheduled Start Date+", OK </div> <div> "Scheduled End Date+", later date, OK, Save (ok if error) </div></span> <div> <input type="checkbox" listnum="11"><span>Next Stage <u>again</u> to actually move it to Implement...</span> </div> <div> Tasks remain in Pending state.</div> </li>
+    <li> <input type="checkbox" listnum="12"><span><b class=eMorpheus>Update Tasks with eMorpheus Calls</b></span></li>
+    <!--li> <input type="checkbox" listnum="12"><span>Inject TGs with CLM/BAO/Remedy::BAO</span></li!-->
+  </ol><!--ul class="noindent"> <li style="color: red;">Still need verification</li> </ul!-->
+  <hr>
+  To end the CRQ, you can change CRQ Status to Canceled...
+  <hr>
+  <b>To set default homepage to the Change Management Console</b><br>
+  In the Change Management Console, Functions menu, Application Preferences
+
+  <ul>
+    <li>Default Home Page = Change Management Console</li>
+
+    <li>Form/After New Save = Modify Request After Submit</li>
+  </ul>
+
+  <body> <table border="1"> <tbody>
+    <tr><td>QA  </td><td><a href="https://somremedy-qa.fed.onbmc.com"      target="_Blank">somremedy-qa</a></td></tr>
+    <tr><td>Prod</td><td><a href="https://somremedy-smartit.fed.onbmc.com" target="_Blank">somremedy-smartit</a></td></tr>
+</tbody></table>
+
+  <script type="text/javascript">
+    var objToday = new Date(),
+      weekday = new Array('0Sun', '1Mon', '2Tue', '3Wed', '4Thu', '5Fri', '6Sat'),
+      dayOfWeek = weekday[objToday.getDay()] ;
+    var today = dayOfWeek;
+    var today2 = dayOfWeek;
+    document.getElementsByTagName('object')[0].textContent = today;
+    document.getElementsByTagName('label')[0].textContent = today2;
+  </script>
+
+  <script type="text/javascript">
+  // https://www.w3schools.com/jsref/jsref_obj_date.asp
+    var now = new Date();
+    var yyyy = now.getFullYear(); yy = yyyy.toString().substr(2,2);
+    document.getElementById("yyyy").innerHTML = yyyy;
+    var MM = now.getMonth()+1; MM = MM < 10 ? '0' + MM : '' + MM;
+    document.getElementById("MM").innerHTML = MM;
+    var dd = now.getDate();
+    document.getElementById("dd").innerHTML = dd;
+    var ss = now.getSeconds(); ss = ss < 10 ? '0' + ss : '' + ss;
+    document.getElementById("ss").innerHTML = ss;
+    var hh = now.getHours(); hh = hh < 10 ? '0' + hh : '' + hh;
+    document.getElementById("hh").innerHTML = hh;
+    var mm = now.getMinutes(); mm = mm < 10 ? '0' + mm : '' + mm;
+    document.getElementById("mm").innerHTML = mm;
+  </script>
+
+  <script type="text/javascript">
+    window.onload = (event) => {
+      let list = document.getElementById('checkList').children;
+
+      // Add an event listener to every checkbox
+      for (var i = 0; i < list.length; i++) {
+        list[i].children[0].addEventListener('change', (event) => {
+
+          // if the checkbox is clicked...
+          checkbox = event.target;
+          if (checkbox.checked == true) {
+
+            //check all previous boxes
+            for (var j = 0; j < checkbox.getAttribute('listNum')-1; j++) {
+              list[j].children[0].checked = true;
+            }
+          }
+        });
+      }
+    };
+  </script>
+
+</body></html>
